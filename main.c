@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "include/tri.h"
 #include "include/tableau.h"
-
+#include "include/recherche.h"
 
 int main()
 {
@@ -14,8 +14,7 @@ int main()
 
     T = Table(n);
     printt(T, n);
-    tri_fusion(T, 0, n - 1);
-    printt(T, n);
+    rech_dicho(T, 0, n, 2);
 }
 
 
