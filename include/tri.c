@@ -79,32 +79,32 @@ void tri_rapide(int *T, int low, int high)
 }
 
 
-void fusion(int *T, int deb, int fin)
+void fusion(int *tableau, int debut, int fin)
 {
     // creating a new array
     int *G;
     int i, j, mid, k;
 
     // determining the middle of the array
-    mid = (deb + fin) / 2;
-    i = deb;
+    mid = (debut + fin) / 2;
+    i = debut;
     j = mid + 1;
 
-    G = (int *) malloc((fin - deb + 1) * sizeof(int));
+    G = (int *) malloc((fin - debut + 1) * sizeof(int));
 
-    for (k = 0; k <= fin - deb; k++)
+    for (k = 0; k <= fin - debut; k++)
     {
-        if ((T[i] < T[j] && i <= mid) || j > fin)
+        if ((tableau[i] < tableau[j] && i <= mid) || j > fin)
         {
-            G[k] = T[i++];
+            G[k] = tableau[i++];
         } else {
-            G[k] = T[j++];
+            G[k] = tableau[j++];
         }
     }
 
-    for (k = 0; k <= fin - deb; k++)
+    for (k = 0; k <= fin - debut; k++)
     {
-        T[deb + k] = G[k]; 
+        tableau[debut + k] = G[k]; 
     }
 
     // pas dans le cours
