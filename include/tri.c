@@ -112,3 +112,14 @@ void fusion(int *tableau, int debut, int fin)
 }
 
 
+void tri_fusion(int *tableau, int debut, int fin)
+{
+    int mid;
+    if (fin > debut)
+    {
+        mid = (debut + fin) / 2;
+        tri_fusion(tableau, debut, mid);
+        tri_fusion(tableau, mid+1, fin);
+        fusion(tableau, debut, fin);
+    }
+}
