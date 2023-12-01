@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tri.h"
+#include "tableau.h"
 
 
 void tri_bule(int *T, int n)
@@ -80,16 +81,20 @@ void tri_rapide(int *T, int low, int high)
 
 void fusion(int *T, int deb, int fin)
 {
+    // creating a new array
     int *G;
     int i, j, mid, k;
-    mid = (deb + fin)/2;
+
+    // determining the middle of the array
+    mid = (deb + fin) / 2;
     i = deb;
     j = mid + 1;
-    G = (int *) malloc((fin - deb + 1)*sizeof(int));
 
-    for (k = 0; k <= fin-deb; k++)
+    G = (int *) malloc((fin - deb + 1) * sizeof(int));
+
+    for (k = 0; k <= fin - deb; k++)
     {
-        if((T[i] < T[j] && i <= mid) || j > fin)
+        if ((T[i] < T[j] && i <= mid) || j > fin)
         {
             G[k] = T[i++];
         } else {
@@ -99,19 +104,11 @@ void fusion(int *T, int deb, int fin)
 
     for (k = 0; k <= fin - deb; k++)
     {
-        T[deb + k] = G[k];
+        T[deb + k] = G[k]; 
     }
+
+    // pas dans le cours
+    free(G);
 }
 
-// FIXME : This function doesn't work
-void tri_fusion(int *T, int deb, int fin)
-{
-    int mid;
-    if (fin > deb)
-    {
-        mid = (deb + fin)/2;
-        tri_fusion(T, deb, mid);
-        tri_fusion(T, mid + 1, fin);
-        fusion(T, deb, fin);
-    }
-}
+

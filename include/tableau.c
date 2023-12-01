@@ -2,41 +2,74 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printt(int *T, int n)
+
+void printt(int *tableau, int longeur)
 {
     int i;
-    for (i = 0; i < n; i++)
+    for (i = 0; i < longeur; i++)
     {
-        printf("%d  ", T[i]);
+        printf("%d  ", tableau[i]);
     }
     printf("\n");
 }
 
-int * Table(int n)
+
+int * Table(int longeur)
 {
-    int * T = (int *) malloc(n * sizeof(int));
+    int * tableau = (int *) malloc(longeur * sizeof(int));
     int i;
 
-    for (i = 0; i < n; i++)
+    for (i = 0; i < longeur; i++)
     {
         printf("T[%d] = ", i);
-        scanf("%d", T + i);
+        scanf("%d", tableau + i);
     }
 
-    return T;
+    return tableau;
 }
 
-void suprime_nombre(int *T, int *n, int m)
+
+void suprime_nombre(int *tableau, int *longeur, int nombre)
 {
     int i, j = 0;
-    for (i = 0; i < *n; i++)
+    for (i = 0; i < *longeur; i++)
     {
-        T[j] = T[i];
-        if (T[i] != m)
+        tableau[j] = tableau[i];
+        if (tableau[i] != nombre)
         {
             j++;
         }
     }
-    // TODO: Free the rest of the table
-    *n = j;
+
+    for (i = j; i < *longeur; i++)
+    {
+        free(tableau + i);
+    }
+
+    *longeur = j;
+}
+
+
+void suprime_doublant(int *tableau, int *longeur)
+{
+    int i, j, k;
+    for (k = 0; k < *longeur; k++)
+    {
+        j = k + 1;
+        for (i = k + 1; i < *longeur; i++)
+        {
+            tableau[j] = tableau[i];
+            if (tableau[i] != tableau[k])
+            {
+                j++;
+            }
+        }
+
+        for (i = j; i < *longeur; i++)
+        {
+            free(tableau + i);
+        }
+
+        *longeur = j;
+    }
 }

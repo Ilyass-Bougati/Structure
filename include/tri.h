@@ -19,4 +19,4 @@ void permut(int *a, int *b);
 void fusion(int *T, int deb, int fin);
 
 // this function peforms merge sort
-void tri_fusion(int *T, int deb, int fin);
+void tri_fusion(int *tableau, int debut, int fin);
