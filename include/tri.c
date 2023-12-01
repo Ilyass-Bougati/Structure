@@ -4,39 +4,39 @@
 #include "tableau.h"
 
 
-void tri_bule(int *T, int n)
+void tri_bule(int *tableau, int longeur)
 {
-    if (n == 1)
+    if (longeur == 1)
     {
         return;
     }
 
     int i, temp;
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < longeur - 1; i++)
     {
-        if (T[i] >= T[i + 1])
+        if (tableau[i] >= tableau[i + 1])
         {
-            temp     = T[i];
-            T[i]     = T[i + 1];
-            T[i + 1] = temp;
+            temp     = tableau[i];
+            tableau[i]     = tableau[i + 1];
+            tableau[i + 1] = temp;
         }
     }
 
-    tri_bule(T, n - 1);
+    tri_bule(tableau, longeur - 1);
 
 }
 
-void tri_insertion(int *T, int n)
+void tri_insertion(int *tableau, int longeur)
 {
     int i, k, temp;
 
-    for (i = 0; i < n; i++)
+    for (i = 0; i < longeur; i++)
     {
-        temp = T[i];
-        for (k = i; k > 0 && T[k] < T[k - 1]; k--)
+        temp = tableau[i];
+        for (k = i; k > 0 && tableau[k] < tableau[k - 1]; k--)
         {
-            T[i] = T[k];
-            T[k] = temp;
+            tableau[i] = tableau[k];
+            tableau[k] = temp;
         }
     }
 }
@@ -50,31 +50,31 @@ void permut(int *a, int *b)
 }
 
 
-int partition(int *T, int low, int high)
+int partition(int *tableau, int low, int high)
 {
     int j = low, i;
 
     for (i = low + 1; i < high; i++)
     {
-        if(T[i] < T[low])
+        if(tableau[i] < tableau[low])
         {
             j++;
-            permut(T + i, T + j);
+            permut(tableau + i, tableau + j);
         }
     }
-    permut(T + j, T + low);
+    permut(tableau + j, tableau + low);
     return j;
 }
 
 
-void tri_rapide(int *T, int low, int high)
+void tri_rapide(int *tableau, int low, int high)
 {
     int pv;
     if (low < high)
     {
-        pv = partition(T, low, high);
-        tri_rapide(T, low, pv - 1);
-        tri_rapide(T, pv + 1, high);
+        pv = partition(tableau, low, high);
+        tri_rapide(tableau, low, pv - 1);
+        tri_rapide(tableau, pv + 1, high);
     }
 }
 
