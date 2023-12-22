@@ -1,20 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "include/tri.h"
-#include "include/tableau.h"
-#include "include/recherche.h"
+#include "include/chaines.h"
 
 int main()
 {
-    int *T, n, i;
-    do {
-        printf("Entrer la longeur du tableau : ");
-        scanf("%d", &n);
-    } while (n <= 1);
-
-    T = Table(n);
-    printt(T, n);
-    rech_dicho(T, 0, n, 2);
+    printf("Entrer une chaine de characteres : ");
+    char *str1 = saisirchaine();
+    printf("Entrer une chaine de characteres : ");
+    char *str2 = saisirchaine();
+    str1 = copieChaine(str1, str2);
+    puts(str1); 
 }
 
 
