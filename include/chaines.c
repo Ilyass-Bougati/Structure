@@ -70,3 +70,20 @@ char* copieChaine(char *dest, char *src)
 
     return dest;
 }
+
+
+char *palindrome(char *CH)
+{
+    int i = 0;
+    int len = strlen(CH);
+
+    for (i = 0; i < len - 1; i++)
+    {
+        if (CH[i] != CH[len - 1 - i])
+        {
+            return "false";
+        }
+    }
+
+    return "true";
+}
