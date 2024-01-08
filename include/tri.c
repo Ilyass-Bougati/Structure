@@ -33,10 +33,10 @@ void tri_insertion(int *tableau, int longeur)
     for (i = 0; i < longeur; i++)
     {
         temp = tableau[i];
-        for (k = i; k > 0 && tableau[k] < tableau[k - 1]; k--)
+        for (k = i; k > 0 && temp < tableau[k - 1]; k--)
         {
-            tableau[i] = tableau[k];
-            tableau[k] = temp;
+            tableau[k]     = tableau[k - 1];
+            tableau[k - 1] = temp;
         }
     }
 }
