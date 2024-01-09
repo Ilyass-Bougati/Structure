@@ -1,13 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "include/chaines.h"
+#include "include/matrice.h"
 
 int main()
 {
-    printf("Entrer une chaine de characteres : ");
-    char *str1 = saisirchaine();
-    char *b = palindrome(str1);
-    puts(b); 
+    int n, m, p;
+    printf("Entrer les dimentions des matrices : ");
+    scanf("%d%d%d", &n, &m, &p);
+
+    int **A = matrice(n, m);
+    int **B = matrice(m, p);
+    int **C = mulmat(A, B, n, m, p);
+    printm(C, n, p);
+
 }
 
 
