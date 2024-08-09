@@ -6,6 +6,7 @@ typedef struct linked_list {
     struct linked_list *next;
 } linked_list;
 
+
 linked_list * create_ll(int data);
 void add_ll(linked_list *list, int data);
 void print_ll(linked_list *list);
@@ -18,6 +19,7 @@ typedef struct double_linked_list{
     int data;
     struct double_linked_list *next;
 } double_linked_list;
+
 
 double_linked_list * create_dll(int data);
 void add_dll(double_linked_list *list, int data);

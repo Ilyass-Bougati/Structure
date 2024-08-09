@@ -2,10 +2,8 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-#define dllist double_linked_list
-#define llist  linked_list
 
-// this part of the code is for linked lists
+// This function creates a linked list
 linked_list * create_ll(int data)
 {
     linked_list *list;
@@ -17,6 +15,7 @@ linked_list * create_ll(int data)
     return list;
 }
 
+// this function adds an element to the end of a linked list
 void add_ll(linked_list *list, int data)
 {
     linked_list *element = create_ll(data);
@@ -28,6 +27,7 @@ void add_ll(linked_list *list, int data)
     temp->next = element;
 }
 
+// this function prints a linked list
 void print_ll(linked_list *list)
 {
     if (list == NULL)
@@ -41,6 +41,7 @@ void print_ll(linked_list *list)
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // this part of the code is for double linked lists
 
 // this function creates a double linked list
