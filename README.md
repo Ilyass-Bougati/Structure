@@ -26,18 +26,12 @@ Before compiling the project make sure to modify the `main.c` to your satisfacti
 ## Requirements
 To be able to compile this project you'll need to have [gcc](https://code.visualstudio.com/docs/cpp/config-mingw) installed and added to PATH, you can use make to compile it or compile it from scratch
 
-## Using make
-After clonning the repository, you can compile the project using the command
-```bash
-make
-```
-which will create a `main.exe` file, which could be ran using the command
-```bash
-./main.exe
-```
 
 ## Compiling using gcc
 To compile the project using gcc use the command
 ```bash
+git clone git@github.com:Ilyass-Bougati/Structure.git
+cd Structure
 gcc -o main.exe main.c include/*.c
+./main.exe
 ```
