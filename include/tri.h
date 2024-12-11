@@ -6,6 +6,9 @@ void tri_bule(int *tableau, int longeur);
 // this function peforms insertion sort on a table
 void tri_insertion(int *tableau, int longeur);
 
+// this function peforms selection sort on a table
+void tri_selection(int *tableau, int longeur);
+
 // this function gives the right placement of a pivot on a table
 int partition(int *tableau, int low, int high);
 

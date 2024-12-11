@@ -21,6 +21,24 @@ void tri_bule(int *tableau, int longeur)
     }
 }
 
+void tri_selection(int *tableau, int longeur)
+{
+    int i, k, min, temp;
+
+    for (i = 0; i < longeur; i++)
+    {
+        min = i;
+        for (k = i + 1; k < longeur; k++)
+        {
+            min = tableau[k] < tableau[min] ? k : min;
+        }
+
+        temp = tableau[i];
+        tableau[i] = tableau[min];
+        tableau[min] = temp;
+    }
+}
+
 void tri_insertion(int *tableau, int longeur)
 {
     int i, k, temp;
