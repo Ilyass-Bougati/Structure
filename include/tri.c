@@ -65,11 +65,12 @@ void permut(int *a, int *b)
 
 int partition(int *tableau, int low, int high)
 {
+    int pivot = low;
     int j = low, i;
 
-    for (i = low + 1; i < high; i++)
+    for (i = low + 1; i <= high; i++)
     {
-        if(tableau[i] < tableau[low])
+        if(tableau[i] < tableau[pivot])
         {
             j++;
             permut(tableau + i, tableau + j);
