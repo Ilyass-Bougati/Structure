@@ -35,9 +35,9 @@ void tri_insertion(int *tableau, int longeur)
         temp = tableau[i];
         for (k = i; k > 0 && temp < tableau[k - 1]; k--)
         {
-            tableau[k]     = tableau[k - 1];
-            tableau[k - 1] = temp;
+            tableau[k] = tableau[k - 1];
         }
+        tableau[k - 1] = temp;
     }
 }
 

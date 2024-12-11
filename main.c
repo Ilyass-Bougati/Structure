@@ -2,11 +2,12 @@
 #include <stdlib.h>
 
 // include the modules here
-#include "include/matrice.h"
+#include "include/tri.h"
+#include "include/tableau.h"
 
 int main()
 {
-    // add code here
+    // Code here
 }
 
 
