@@ -6,24 +6,19 @@
 
 void tri_bule(int *tableau, int longeur)
 {
-    if (longeur == 1)
+    int i, k, temp;
+    for (k = longeur; k > 1; k--)
     {
-        return;
-    }
-
-    int i, temp;
-    for (int i = 0; i < longeur - 1; i++)
-    {
-        if (tableau[i] >= tableau[i + 1])
+        for (i = 0; i < longeur - 1; i++)
         {
-            temp     = tableau[i];
-            tableau[i]     = tableau[i + 1];
-            tableau[i + 1] = temp;
+            if (tableau[i] >= tableau[i + 1])
+            {
+                temp     = tableau[i];
+                tableau[i]     = tableau[i + 1];
+                tableau[i + 1] = temp;
+            }
         }
     }
-
-    tri_bule(tableau, longeur - 1);
-
 }
 
 void tri_insertion(int *tableau, int longeur)
